@@ -15,3 +15,6 @@ class GoogleScholarScraper:
         self.scraper = None
         self.parser = None
         self.auth_urls = URLs
+        self.auth_htmls = None
+        self.pub_data = None
+        self.googlescholar_baseURL = "https://scholar.google.com/"
