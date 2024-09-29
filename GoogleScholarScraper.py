@@ -18,3 +18,12 @@ class GoogleScholarScraper:
         self.auth_htmls = None
         self.pub_data = None
         self.googlescholar_baseURL = "https://scholar.google.com/"
+
+    # Initialize Custom Web Scraper Class
+    def initializeWebScraper(self):
+        webScraper = WebpageScraper()
+        webScraper.enableSave()
+        webScraper.enableWait()
+        webScraper.setWaitTime(1)
+        webScraper.disableLog()
+        self.scraper = webScraper
