@@ -27,3 +27,9 @@ class GoogleScholarScraper:
         webScraper.setWaitTime(1)
         webScraper.disableLog()
         self.scraper = webScraper
+
+    # Initialize Custom Web Parser Class
+    def initializeWebParser(self):
+        webParser = GoogleScholarParser()
+        self.parser = webParser
+    
