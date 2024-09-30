@@ -33,3 +33,12 @@ class GoogleScholarScraper:
         webParser = GoogleScholarParser()
         self.parser = webParser
     
+    # Google Scholar Scrape Authors
+    def GoogleScholar_ScrapeAuthors(self):
+        self.scraper.setSaveFilename("data\gsc_auth_html")
+        try:
+            self.auth_htmls = self.scraper.getHTMLDict(self.auth_urls)
+        except:
+            self.auth_htmls = [""]
+        # getHTMLDict --> {"auth name 1" : str(html), "auth name 2" : str(html),....}
+        # print(self.auth_htmls)
