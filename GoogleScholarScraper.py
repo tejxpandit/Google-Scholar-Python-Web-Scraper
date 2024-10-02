@@ -75,3 +75,23 @@ class GoogleScholarScraper:
         # Save the Data File with Pub HTMLs
         # print(self.pub_data)
         self.savePubDataFile("data\gsc_pub_html")
+
+    # Google Scholar Parse Publication Page
+    def GoogleScholar_ParsePubPage(self):
+        self.parser.pub_data = self.pub_data
+        # self.parser.parsePubData(self.auth_htmls)
+        self.pub_data = self.parser.parseSavedPubData("data\gsc_pub_html")
+        # parsePubData --> {"auth name 1" : [pub1, pub2, pub3.....], "auth name 2" : [pub1, pub2, pub3.....],....}
+        # pub_format = {
+        #     'title' : '',
+        #     'author' : '',
+        #     'venue' : '',
+        #     'year' : '',
+        #     'cites' : '',
+        #     'page_link' : '',
+        #     'paper_link' : '',
+        #     'download_link' : '',
+        #     'pub_html' : ''
+        # }
+        # Example : print(self.pub_data['Tej Pandit'][5]['pub_html'])
+        # print(self.pub_data)
