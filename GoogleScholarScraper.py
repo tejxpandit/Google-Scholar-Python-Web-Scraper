@@ -42,3 +42,21 @@ class GoogleScholarScraper:
             self.auth_htmls = [""]
         # getHTMLDict --> {"auth name 1" : str(html), "auth name 2" : str(html),....}
         # print(self.auth_htmls)
+
+    # Google Scholar Parse Author Publications
+    def GoogleScholar_ParseAuthorPubs(self):
+        # self.parser.parseAuthData(self.auth_htmls)
+        self.pub_data = self.parser.parseSavedAuthData("data\gsc_auth_html")
+        # parsePubData --> {"auth name 1" : [pub1, pub2, pub3.....], "auth name 2" : [pub1, pub2, pub3.....],....}
+        # pub_format = {
+        #     'title' : '',
+        #     'author' : '',
+        #     'venue' : '',
+        #     'year' : '',
+        #     'cites' : '',
+        #     'page_link' : '',
+        #     'paper_link' : '',
+        #     'download_link' : ''
+        # }
+        # Example : print(self.pub_data['Tej Pandit'][5]['title'])
+        # print(self.pub_data)
