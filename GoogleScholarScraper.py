@@ -60,3 +60,18 @@ class GoogleScholarScraper:
         # }
         # Example : print(self.pub_data['Tej Pandit'][5]['title'])
         # print(self.pub_data)
+
+    # Google Scholar Scrape Publication Page
+    def GoogleScholar_ScrapePubPage(self):
+        self.scraper.disableSave()
+        for auth, pubs in self.pub_data.items():
+            for pub in pubs:
+                try:
+                    pub_html = self.scraper.getHTML(self.googlescholar_baseURL + pub['page_link'])
+                except:
+                    pub_html = ""
+                # getHTML --> str(html)
+                pub['pub_html'] = pub_html
+        # Save the Data File with Pub HTMLs
+        # print(self.pub_data)
+        self.savePubDataFile("data\gsc_pub_html")
