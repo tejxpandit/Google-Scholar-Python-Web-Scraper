@@ -101,3 +101,20 @@ class GoogleScholarScraper:
         with open(savefile, "wb") as fp:
             pickle.dump(self.pub_data, fp)
         print('Publication Data Saved!\nfile-name : "' + savefile + '"')
+
+    # TEST : Display All Paper Links
+    def logPublicationDetails(self):
+        for auth, pubs in self.pub_data.items():
+            print("\n\n")
+            print("#"*50)
+            print(auth)
+            print("#"*50)
+            print("\n")
+            for pub in pubs:
+                print(pub['title'])
+                print(pub['author'])
+                print(pub['venue'])
+                print(pub['year'])
+                print(pub['cites'])
+                print(pub['paper_link'])
+                print("-"*50)
