@@ -118,3 +118,10 @@ class GoogleScholarScraper:
                 print(pub['cites'])
                 print(pub['paper_link'])
                 print("-"*50)
+
+GSS = GoogleScholarScraper()
+# GSS.GoogleScholar_ScrapeAuthors()
+# GSS.GoogleScholar_ParseAuthorPubs()
+# GSS.GoogleScholar_ScrapePubPage()
+GSS.GoogleScholar_ParsePubPage()
+GSS.logPublicationDetails()
