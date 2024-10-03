@@ -95,3 +95,9 @@ class GoogleScholarScraper:
         # }
         # Example : print(self.pub_data['Tej Pandit'][5]['pub_html'])
         # print(self.pub_data)
+
+    # Save Publication Data
+    def savePubDataFile(self, savefile):
+        with open(savefile, "wb") as fp:
+            pickle.dump(self.pub_data, fp)
+        print('Publication Data Saved!\nfile-name : "' + savefile + '"')
