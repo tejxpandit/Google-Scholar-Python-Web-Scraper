@@ -119,6 +119,14 @@ class GoogleScholarScraper:
                 print(pub['paper_link'])
                 print("-"*50)
 
+    # TODO : Automatic Flow --> Skip redundant steps
+    def GoogleScholar_AutoScraper(self):
+        GSS.GoogleScholar_ScrapeAuthors()
+        GSS.GoogleScholar_ParseAuthorPubs()
+        GSS.GoogleScholar_ScrapePubPage()
+        GSS.GoogleScholar_ParsePubPage()
+        GSS.logPaperLinks()
+
 GSS = GoogleScholarScraper()
 # GSS.GoogleScholar_ScrapeAuthors()
 # GSS.GoogleScholar_ParseAuthorPubs()
