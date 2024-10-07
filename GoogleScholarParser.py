@@ -28,3 +28,8 @@ class GoogleScholarParser:
     def parseAuthData(self, auth_htmls):
         self.auth_htmls = auth_htmls
         return self.GoogleScholar_AuthorParser()
+    
+    def parseSavedAuthData(self, loadfile):
+        self.loadfile = loadfile
+        self.loadAuthFile()
+        return self.GoogleScholar_AuthorParser()
