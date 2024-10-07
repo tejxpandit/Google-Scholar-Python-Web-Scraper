@@ -6,6 +6,18 @@
 from bs4 import BeautifulSoup
 import pickle
 
+# Publications Format
+pub = {
+    'title' : '',
+    'author' : '',
+    'venue' : '',
+    'year' : '',
+    'cites' : '0',
+    'page_link' : '',
+    'paper_link' : '',
+    'download_link' : ''
+}
+
 class GoogleScholarParser:
     def __init__(self):
         self.auth_htmls = None
