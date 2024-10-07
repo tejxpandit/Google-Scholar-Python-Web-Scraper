@@ -33,3 +33,7 @@ class GoogleScholarParser:
         self.loadfile = loadfile
         self.loadAuthFile()
         return self.GoogleScholar_AuthorParser()
+    
+    def parsePubData(self, pub_data):
+        self.pub_data = pub_data
+        return self.GoogleScholar_PublicationParser()
