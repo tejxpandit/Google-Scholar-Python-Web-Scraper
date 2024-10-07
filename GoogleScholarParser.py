@@ -37,3 +37,8 @@ class GoogleScholarParser:
     def parsePubData(self, pub_data):
         self.pub_data = pub_data
         return self.GoogleScholar_PublicationParser()
+    
+    def parseSavedPubData(self, loadfile):
+        self.loadfile = loadfile
+        self.loadPubFile()
+        return self.GoogleScholar_PublicationParser()
