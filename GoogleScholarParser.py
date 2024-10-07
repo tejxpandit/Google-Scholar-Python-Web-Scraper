@@ -42,3 +42,10 @@ class GoogleScholarParser:
         self.loadfile = loadfile
         self.loadPubFile()
         return self.GoogleScholar_PublicationParser()
+    
+    # Output Data Format
+    # pub_data = {
+    #     'author name' : [pub1, pub2, pub3.....],
+    #     'author name' : [pub1, pub2, pub3.....],
+    #     .....
+    # }
