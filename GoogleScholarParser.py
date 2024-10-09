@@ -49,3 +49,45 @@ class GoogleScholarParser:
     #     'author name' : [pub1, pub2, pub3.....],
     #     .....
     # }
+    def GoogleScholar_AuthorParser(self):
+        self.pub_data = {}
+        # Extract All Pubs from HTML
+        for name, html in self.auth_htmls.items():
+            gsc_html = BeautifulSoup(html, 'html.parser')
+
+            # Extract Pub Data
+            pubs = []
+            pub_section = gsc_html.find(id="gsc_a_b")
+            # Iterate all Pub Rows
+            for pub_row in pub_section.find_all('tr'):
+                # Title
+                pub_row_details = pub_row.find('td', {'class' : "gsc_a_t"})
+                title = pub_row_details.find('a', {'class' : "gsc_a_at"})
+                # Page Link
+                page_link = title['href']
+                # Author and Venue
+                other_elements = pub_row_details.find_all('div', {'class' : "gs_gray"})
+                author = other_elements[0]
+                venue = other_elements[1]
+                # Cites
+                pub_row_cites = pub_row.find('td', {'class' : "gsc_a_c"})
+                cites = pub_row_cites.find('a')
+                # Year
+                pub_row_year = pub_row.find('td', {'class' : "gsc_a_y"})
+                year = pub_row_year.find('span')
+
+                # Add Data to Pub Format
+                p = pub.copy()
+                p['title'] = title.get_text()
+                p['author'] = author.get_text()
+                p['venue'] = venue.get_text()
+                p['year'] = year.get_text()
+                p['cites'] = cites.get_text()
+                p['page_link'] = page_link
+                # Add Pub to Pub List
+                pubs.append(p)
+
+            # Assign All Pubs to Author Name in Output Data
+            self.pub_data[name] = pubs
+
+        return self.pub_data
