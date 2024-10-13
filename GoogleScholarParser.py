@@ -103,3 +103,9 @@ class GoogleScholarParser:
                 del pub['pub_html']
 
         return self.pub_data
+
+    # Load HTML from saved file
+    def loadAuthFile(self):
+        with open(self.loadfile, "rb") as fp:
+            self.auth_htmls = pickle.load(fp)
+        print('Webpage Data Loaded!\nfile-name : "' + self.loadfile + '"')
