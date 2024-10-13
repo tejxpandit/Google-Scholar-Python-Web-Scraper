@@ -91,3 +91,15 @@ class GoogleScholarParser:
             self.pub_data[name] = pubs
 
         return self.pub_data
+
+    def GoogleScholar_PublicationParser(self):
+        for auth, pubs in self.pub_data.items():
+            for pub in pubs:
+                pub_html = BeautifulSoup(pub['pub_html'], 'html.parser')
+                # print(pub_html)
+                pub_title = pub_html.find(id="gsc_oci_title")
+                pub_link = pub_title.find('a', {'class' : "gsc_oci_title_link"})
+                pub['paper_link'] = pub_link['href']
+                del pub['pub_html']
+
+        return self.pub_data
