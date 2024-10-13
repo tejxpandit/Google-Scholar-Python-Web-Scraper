@@ -109,3 +109,8 @@ class GoogleScholarParser:
         with open(self.loadfile, "rb") as fp:
             self.auth_htmls = pickle.load(fp)
         print('Webpage Data Loaded!\nfile-name : "' + self.loadfile + '"')
+
+    def loadPubFile(self):
+        with open(self.loadfile, "rb") as fp:
+            self.pub_data = pickle.load(fp)
+        print('Publication Data Loaded!\nfile-name : "' + self.loadfile + '"')
